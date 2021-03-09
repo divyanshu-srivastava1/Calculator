@@ -11,7 +11,12 @@ document.addEventListener("click", e=>{
   }
   else if(e.target.matches('.op')){
       let s = screen.value
-      if((s.charAt(s.length-1)=="-" || s.charAt(s.length-1)=="+") && 
+      if((s.charAt(s.length-1)=="*" || s.charAt(s.length-1)=="/") && 
+      (e.target.dataset.value=="*" || e.target.dataset.value=="/")){
+            screen.value=screen.value.slice(0,-1)
+            screen.value+=e.target.dataset.value
+      }
+      else if((s.charAt(s.length-1)=="-" || s.charAt(s.length-1)=="+") && 
       (e.target.dataset.value=="*" || e.target.dataset.value=="/")){
             screen.value=screen.value.slice(0,-1)
             screen.value+=e.target.dataset.value
